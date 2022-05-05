@@ -15,11 +15,11 @@ router.route('/').get(getUsers).post(createUser);
 // /api/users/:userId
 router.route('/:userId').get(getSingleUser).delete(deleteUser);
 
-// /api/users/:userId/friends
-router.route('/:userId/friends').post(addFriend);
+// /api/users/:userId/:friendId (friendId is actually a userId)
+router.route('/:userId/friends/:friendId').post(addFriend);
 
-// /api/students/:studentId/assignments/:assignmentId
-router.route('/:userId/users/:userId').delete(removeFriend);
+// /api/users/:userId/:friendId (friendId is actually a userId)
+router.route('/:userId/friends/:friendId').delete(removeFriend);
 
 // /api/user/:userId
 router
@@ -29,3 +29,4 @@ router
   .delete(deleteUser);
 
 module.exports = router;
+
