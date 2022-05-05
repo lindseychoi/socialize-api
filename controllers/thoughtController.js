@@ -10,7 +10,6 @@ module.exports = {
   // Get a thought
   getSingleThought(req, res) {
     Thought.findOne({ _id: req.params.thoughtId })
-      .select('-__v')
       .then((thought) =>
         !thought
           ? res.status(404).json({ message: 'No thought with that ID' })
@@ -72,15 +71,15 @@ module.exports = {
       console.log(req.body);
       Thought.findOneAndUpdate(
         { _id: req.params.thoughtId },
-        { $addToSet: { thoughts: req.body } },
+        { $addToSet: { reactions: req.body } },
         { runValidators: true, new: true }
       )
-        .then((thought) =>
+        .then((reaction) =>
           !reaction
             ? res
                 .status(404)
-                .json({ message: 'No thought found with that ID :(' })
-            : res.json(thought)
+                .json({ message: 'No reaction found with that ID :(' })
+            : res.json(reaction)
         )
         .catch((err) => res.status(500).json(err));
     },
@@ -91,12 +90,12 @@ module.exports = {
         { $pull: { reaction: { reactionId: req.params.reactionId } } },
         { runValidators: true, new: true }
       )
-        .then((thought) =>
+        .then((reaction) =>
           !reaction
             ? res
                 .status(404)
-                .json({ message: 'No thought found with that ID :(' })
-            : res.json(thought)
+                .json({ message: 'No reaction found with that ID :(' })
+            : res.json(reaction)
         )
         .catch((err) => res.status(500).json(err));
     },

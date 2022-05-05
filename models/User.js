@@ -15,16 +15,14 @@ const userSchema = new Schema(
       unique: true,
     //   must match a valid email address
     },
-    thoughts: [{
-      type: Schema.Types.ObjectId,
-      ref: 'Thought',
-    }],
+    thoughts: [{ type: Schema.Types.ObjectId, ref: 'thought' }],
     friends: [{ type: Schema.Types.ObjectId, ref: 'user' }],
   },
     {
       toJSON: {
-        getters: true,
+        virtuals: true,
       },
+      id: false,
     }
 );  
 

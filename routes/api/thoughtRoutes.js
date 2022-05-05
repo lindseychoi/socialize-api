@@ -13,11 +13,11 @@ const {
 // /api/thoughts
 router.route('/').get(getThoughts).post(createThought);
 
-// /api/users/:thoughtId/reactions
-router.route('/:thoughtId/reactions').post(addReaction);
+// /api/thoughts/:thoughtId/reactions
+router.route('/:thoughtId/reactions/:reactionId?').post(addReaction);
 
-// /api/students/:thoughtId/reactions/:reactionId
-router.route('/:thoughtId/reactions/:reactionId').delete(removeReaction);
+// /api/thoughts/:thoughtId/reactions/:reactionId
+router.route('/:thoughtId/reactions/:reactionId?').delete(removeReaction);
 
 // /api/thoughts/:thoughtId
 router
