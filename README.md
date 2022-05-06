@@ -2,6 +2,9 @@
 [![License](https://img.shields.io/badge/License-Unlicense-blue.svg)](https://opensource.org/licenses/Unlicense)
 ## This application is a social media database that can be accessed through Insomnia and MongoDB Compass. To run it and explore the contents and functionality of routes and schemas/models, simply npm i, npm run seed, and npm start. You will see that there are users, thoughts, and reactions that have functional CRUD routes. 
 
+## Video Links: 
+## https://watch.screencastify.com/v/nXuRbAAvBLwo5weTtQQh
+## https://watch.screencastify.com/v/lbosQWp5fZJb3K0lWb17
 ### _Table of Contents_ 
 * [Usage](#usage) 
 * [Contributing](#contributing) 
