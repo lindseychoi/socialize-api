@@ -15,23 +15,23 @@ connection.once('open', async () => {
 
   const seedUsers = [
       {
-        username: "ClarkF",
+        userName: "ClarkF",
         email: "clarkf@gmail.com",
       },
       {
-        username: "HazelF",
+        userName: "HazelF",
         email: "hazelf@gmail.com",
       },
       {
-        username: "BenC",
+        userName: "BenC",
         email: "benc@gmail.com",
       },
       {
-        username: "SherryD",
+        userName: "SherryD",
         email: "sherrygirl@gmail.com",
       },
       {
-        username: "DavidD",
+        userName: "DavidD",
         email: "davidd@gmail.com",
       },
   ];
@@ -39,23 +39,23 @@ connection.once('open', async () => {
   const seedThoughts = [
       {
         thoughtText: "Today it is raining",
-        username: "ClarkF",
+        userName: "ClarkF",
       },
       {
         thoughtText:"Tomorrow it will be sunny",
-        username: "HazelF",
+        userName: "HazelF",
       },
       {
         thoughtText: "No more snow",
-        username: "BenC",
+        userName: "BenC",
       },
       {
         thoughtText: "This summer we will go paddleboarding",
-        username: "SherryD",
+        userName: "SherryD",
       },
       {
         thoughtText: "It's a nice day to take a bike ride",
-        username: "DavidD"
+        userName: "DavidD",
       },
   ];
 
