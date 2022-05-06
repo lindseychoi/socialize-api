@@ -73,7 +73,7 @@ module.exports = {
       console.log('You are adding a reaction');
       console.log(req.body);
       Thought.findOneAndUpdate(
-        { _id: req.params.thought_id },
+        { _id: req.params.thoughtId },
         { $addToSet: { reactions: req.body } },
         { new: true }
       )
@@ -82,7 +82,7 @@ module.exports = {
             ? res
                 .status(404)
                 .json({ message: '404' })
-            : res.json(thought)
+            : res.json("Reaction successfully created!")
         )
         .catch((err) => res.status(500).json(err));
     },
