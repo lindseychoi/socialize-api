@@ -10,6 +10,7 @@ module.exports = {
   // Get a thought
   getSingleThought(req, res) {
     Thought.findOne({ _id: req.params.thoughtId })
+      .populate({ path: 'reactions', select: '-__v' })
       .then((thought) =>
         !thought
           ? res.status(404).json({ message: 'No thought with that ID' })
@@ -21,9 +22,11 @@ module.exports = {
   createThought(req, res) {
     Thought.create(req.body)
       .then((thought) => {
+        console.log("updating user with new thought");
+        console.log(req.body);
         return User.findOneAndUpdate(
           { userName: req.body.userName },
-          { $addToSet: { thoughts: thought._id } },
+          { $addToSet: { thoughts: thought } },
           { new: true }
         );
       })
@@ -70,16 +73,16 @@ module.exports = {
       console.log('You are adding a reaction');
       console.log(req.body);
       Thought.findOneAndUpdate(
-        { _id: req.params.thoughtId },
+        { _id: req.params.thought_id },
         { $addToSet: { reactions: req.body } },
-        { runValidators: true, new: true }
+        { new: true }
       )
-        .then((reaction) =>
-          !reaction
+        .then((thought) =>
+          !thought
             ? res
                 .status(404)
-                .json({ message: 'No reaction found with that ID :(' })
-            : res.json(reaction)
+                .json({ message: '404' })
+            : res.json(thought)
         )
         .catch((err) => res.status(500).json(err));
     },
